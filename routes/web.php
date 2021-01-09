@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Home;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [Home::class, 'home']);
+Route::get('p/{post:id}', [Home::class, 'post']);
+Route::get('خبر/{post:slug}', [Home::class, 'post']);
+Route::get('تصنيف/{category:slug}', [Home::class, 'category']);
+
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
