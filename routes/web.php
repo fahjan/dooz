@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [Home::class, 'home']);
 Route::get('p/{post:id}', [Home::class, 'post']);
 Route::get('خبر/{post:slug}', [Home::class, 'post']);
+Route::get('cat/{category:id}', [Home::class, 'cat']);
 Route::get('تصنيف/{category:slug}', [Home::class, 'category']);
 
 /* Route::get('/', function () {
