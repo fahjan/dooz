@@ -15,3 +15,8 @@ function post($slug)
 {
     return URL::to('خبر/' . $slug);
 }
+
+
+function image($w, $h, $filename) {
+    return url('uploads' . $w . '-' . $h . '/' . $filename );
+}

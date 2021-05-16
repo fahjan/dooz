@@ -4,7 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Support\Facades\Auth;
 
-trait User
+trait UserTrait
 {
 
     /**
@@ -18,11 +18,11 @@ trait User
         });
 
         static::updating(function ($model) {
-            $model->updater_id = Auth::id();
+            $model->updator_id = Auth::id();
         });
 
         static::deleting(function ($model) {
-            $model->destroyer_id = Auth::id();
+            $model->deletor_id = Auth::id();
         });
     }
 
@@ -31,12 +31,12 @@ trait User
         return $this->BelongsTo(\App\User::class);
     }
 
-    public function updater()
+    public function updator()
     {
         return $this->BelongsTo(\App\User::class);
     }
 
-    public function destroyer()
+    public function deletor()
     {
         return $this->BelongsTo(\App\User::class);
     }

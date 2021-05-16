@@ -48,12 +48,13 @@ return [
             'root' => storage_path('app'),
         ],
 
-        'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
-        ],
+        // TODO(fahjan): inneeded
+        // 'public' => [
+        //     'driver' => 'local',
+        //     'root' => storage_path('app/public'),
+        //     'url' => env('APP_URL').'/storage',
+        //     'visibility' => 'public',
+        // ],
 
         's3' => [
             'driver' => 's3',
@@ -64,6 +65,22 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
+        'cronjobs' => [
+            'driver' => 'local',
+            // 'root' => storage_path('app'),
+            // 'root'   => public_path() . '/uploads',
+            'root'   => base_path() . '/cronjobs',
+            'url' => env('APP_URL') . '/cronjobs',
+            'visibility' => 'public',
+        ],
+        'public' => [
+            'driver' => 'local',
+            // 'root'   => base_path('/../wp-content/uploads/') ,
+            // 'url' => env('APP_URL') . '/wp-content/',
+            'root'   => base_path('/../wp-content/uploads/') ,
+            'url' => env('APP_URL') . '/wp-content/',
+        ],
+
 
     ],
 
